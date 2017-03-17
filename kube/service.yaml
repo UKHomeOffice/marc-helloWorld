@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: dsp-hello-world-service
+  name: dsp-hello-world-service
+spec:
+  ports:
+  - name: exposed-port
+    port: 80
+    targetPort: 4000
+  selector:
+    name: dsp-hello-world

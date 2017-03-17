@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/secure-backends: "true"
+  name: {{.APP_NAME}}-ingress
+spec:
+  rules:
+  - host: {{.APP_NAME}}.notprod.homeoffice.gov.uk
+    http:
+      paths:
+      - backend:
+          serviceName: {{.APP_NAME}}-service
+          servicePort: https
+        path: /
+  tls:
+  - hosts:
+    - {{.APP_NAME}}.notprod.homeoffice.gov.uk
+    - www.{{.APP_NAME}}.notprod.homeoffice.gov.uk
+    secretName: external-tls
