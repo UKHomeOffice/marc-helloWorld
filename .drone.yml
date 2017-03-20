@@ -22,7 +22,7 @@ pipeline:
       branch: master
       event: push
   deploy_to_uat:
-    image: quay.io/ukhomeofficedigital/kd:v0.2.3
+    image: quay.io/ukhomeofficedigital/kd:v0.2.2
     environment:
       - KUBE_NAMESPACE=dev-induction
     commands:
