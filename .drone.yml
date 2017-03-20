@@ -21,15 +21,15 @@ pipeline:
     when:
       branch: master
       event: push
-deploy_to_uat:
-  image: quay.io/ukhomeofficedigital/kd:v0.2.3
-  environment:
-    - KUBE_NAMESPACE=dev-induction
-  commands:
-    - ./deploy.sh
-  when:
-    environment: master
-    event: push
+  deploy_to_uat:
+    image: quay.io/ukhomeofficedigital/kd:v0.2.3
+    environment:
+      - KUBE_NAMESPACE=dev-induction
+    commands:
+      - ./deploy.sh
+    when:
+      environment: master
+      event: push
 
 
 services:
