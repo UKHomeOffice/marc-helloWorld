@@ -13,11 +13,11 @@ pipeline:
   image_to_quay:
     image: docker:1.11
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
+      - DOCKER_HOST=tcp://10.0.2.15:2375
     commands:
       - docker login -u="marclyonqa" -p=${DOCKER_PASSWORD} quay.io
-      - docker tag <helloworld> quay.io/ukhomeofficedigital/<image_name>:${DRONE_COMMIT_SHA}
-      - docker push quay.io/ukhomeofficedigital/<image_name>:${DRONE_COMMIT_SHA}
+      - docker tag helloworld quay.io/ukhomeofficedigital/helloworld:${DRONE_COMMIT_SHA}
+      - docker push quay.io/ukhomeofficedigital/helloworld:${DRONE_COMMIT_SHA}
     when:
       branch: master
       event: push
