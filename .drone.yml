@@ -31,7 +31,7 @@ pipeline:
       - "INSECURE_SKIP_TLS_VERIFY=true"
     image: quay.io/ukhomeofficedigital/kd:v0.2.2
     when:
-      branch: dev
+      branch: master
       event: push
 
 services:
